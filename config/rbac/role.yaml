@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - chiu.my.domain
+  resources:
+  - kafkaclusters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - chiu.my.domain
+  resources:
+  - kafkaclusters/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - chiu.my.domain
+  resources:
+  - kafkaclusters/status
+  verbs:
+  - get
+  - patch
+  - update
